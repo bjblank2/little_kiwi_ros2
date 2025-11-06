@@ -25,8 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Joy node for joystick input
-RUN apt update && apt install -y --no-install-recommends \
-    ros-humble-joy \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-humble-teleop-twist-joy \
     && rm -rf /var/lib/apt/lists/*
 
 # Optional helpful Python tools

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # ---------- Config you can tweak ----------
-IMAGE="${IMAGE:-my-ros-humble:zenoh}"
+IMAGE="${IMAGE:-ros2_zenoh:latest}"
 NAME="${NAME:-ros2_zenoh}"       # container name
 WS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HEADLESS="${HEADLESS:-0}"        # set to 1 to skip X11/GUI bits
@@ -38,6 +38,18 @@ for dev in /dev/ttyACM*; do
 done
 # Also allow access to USB serial devices if needed
 for dev in /dev/ttyUSB*; do
+  [[ -e "$dev" ]] && ARGS+=( --device="$dev" )
+done
+# Also allow access to usb joystick devices if needed
+for dev in /dev/input/js*; do
+  [[ -e "$dev" ]] && ARGS+=( --device="$dev" )
+done
+# Also mount the input event devices (some joystick drivers need these)
+for dev in /dev/input/event*; do
+  [[ -e "$dev" ]] && ARGS+=( --device="$dev" )
+done
+# Also allow for webcams if needed
+for dev in /dev/video*; do
   [[ -e "$dev" ]] && ARGS+=( --device="$dev" )
 done
 

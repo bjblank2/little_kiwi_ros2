@@ -8,7 +8,7 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
             'port',
-            default_value='/dev/ttyACM1',
+            default_value='/dev/ttyACM0',
             description='Serial port for SO101 puppet arm'
         ),
         DeclareLaunchArgument(
@@ -28,7 +28,7 @@ def generate_launch_description():
         ),
         DeclareLaunchArgument(
             'calibration_file',
-            default_value='',
+            default_value='puppet_arm_calibration.json',
             description='Path to calibration JSON file'
         ),
         

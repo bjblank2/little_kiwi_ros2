@@ -35,6 +35,7 @@ class CustomInstall(install):
             'so101_puppeteer',
             'so101_puppet',
             'kiwi_base',
+            'kiwi_mobile_puppet',
             'kiwi_cam',
             'so101_calibrate',
             'so101_test_node'
@@ -78,6 +79,7 @@ setup(
             'so101_puppeteer = kiwi_robot.so101_puppeteer:main',
             'so101_puppet = kiwi_robot.so101_puppet:main',
             'kiwi_base = kiwi_robot.kiwi_base:main',
+            'kiwi_mobile_puppet = kiwi_robot.kiwi_mobile_puppet:main',
             'kiwi_cam = kiwi_robot.kiwi_cam:main',
             'so101_calibrate = kiwi_robot.so101_calibrate:main',
             'so101_test_node = kiwi_robot.so101_test_node:main',
